@@ -10,7 +10,9 @@ Quelle: https://docs.oracle.com/en/virtualization/virtualbox/6.0/user/serialport
 * Dann kann diese VM, der `serverMaster` gestartet werden.
 * Anschließend wird die zweite VM `serverSlave` genauso konfiguriert. Gleicher Port, gleiche Portnummer, gleicher Portmodus und gleiche Pfad/Adresse. **Hier wird jetzt aber "Mit Pipe/Socket verbinden" angekreuzt!**
 * und anschließend kann `serverSlave` gestartet werden.
-Wenn zuerst die Slave-VM gestartet wird, hängt sich die VM beim booten auf.
+Wenn zuerst die Slave-VM gestartet wird, hängt sich die VM beim booten auf.  
+
+![Sreenshot VirtualBox](https://github.com/richtertoralf/serielleSimulation/blob/4e8d87adc7af7e19e2961d2c1feb2366e08df7ba/Screenshot%202024-01-01%20152350.png)
 
 ### Testen
 ```
@@ -34,4 +36,4 @@ oder zufällige Zahlen jede Sekunde:
 ```
 while true; do echo -e "$((1 + RANDOM % 1000))\r" > /dev/ttyS0; sleep 1; done
 ```
-![Screenshot](https://github.com/richtertoralf/serielleSimulation/blob/b8e84affc56795c1d477f543f048b255f092b553/Screenshot%202024-01-01%20150633.png)
+![Screenshot Terminal](https://github.com/richtertoralf/serielleSimulation/blob/b8e84affc56795c1d477f543f048b255f092b553/Screenshot%202024-01-01%20150633.png)
