@@ -129,7 +129,7 @@ while true; do
     echo "Received data: $SERIAL_DATA"
 ```
 ## Python-Skripte
-Wenn es späer noch komplexer werden soll, dann lieber gleich zu Python wechseln ;-)  
+Wenn es später noch komplexer werden soll, dann lieber gleich zu Python wechseln ;-)  
 ```
 sudo apt install python3-pip
 pip install pyserial
