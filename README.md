@@ -36,4 +36,8 @@ oder zufällige Zahlen jede Sekunde:
 ```
 while true; do echo -e "$((1 + RANDOM % 1000))\r" > /dev/ttyS0; sleep 1; done
 ```
+allen anderen Benutzern das Schreiben in die serielle Schnittstelle auf dem master zulassen:
+```
+root@serverMaster:~# chmod 666 /dev/ttyS0
+```
 ![Screenshot Terminal](https://github.com/richtertoralf/serielleSimulation/blob/b8e84affc56795c1d477f543f048b255f092b553/Screenshot%202024-01-01%20150633.png)
