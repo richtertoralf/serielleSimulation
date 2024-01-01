@@ -37,8 +37,15 @@ Wichtig! Das muss auf beiden Seiten der Verbindung gemacht werden!
 Diese Einstellung ist nicht persistent und muss nach jedem Neustart der Computer wieder angepasst werden.
 
 ## Daten übertragen
+### serverSlave
 Auf der VM `serverSlave`starte ich ein extra Terminal mit:  
-`sudo screen /dev/ttyS0`  
+```
+sudo screen /dev/ttyS0`
+```
+Das Terminal kannst du so schließen:
+`[ctrl]+[a]  [k]`
+
+### serverMaster
 Auf der VM `serverMaster` kann ich jetzt als user root Daten in die Schnittstelle `ttyS0`schreiben, welche dann über die "virtuelle serielle Schnitstelle" zum `serverSlave" übertragen werden.  
 ```
 tori@serverMaster:~$ sudo -i
