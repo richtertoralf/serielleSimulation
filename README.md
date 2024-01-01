@@ -34,5 +34,4 @@ oder zufällige Zahlen jede Sekunde:
 ```
 while true; do echo -e "$((1 + RANDOM % 1000))\r" > /dev/ttyS0; sleep 1; done
 ```
-![Screensho(https://github.com/richtertoralf/serielleSimulation/blob/b8e84affc56795c1d477f543f048b255f092b553/Screenshot%202024-01-01%20150633.png)]
-
+![Screenshot](https://github.com/richtertoralf/serielleSimulation/blob/b8e84affc56795c1d477f543f048b255f092b553/Screenshot%202024-01-01%20150633.png)
