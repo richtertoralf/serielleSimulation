@@ -34,3 +34,4 @@ oder zufällige Zahlen jede Sekunde:
 ```
 while true; do echo -e "$((1 + RANDOM % 1000))\r" > /dev/ttyS0; sleep 1; done
 ```
+![Screenshot](Screenshot 2024-01-01 150633.png)
