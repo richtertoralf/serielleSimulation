@@ -23,7 +23,19 @@ tori@serverSlave:~$ sudo dmesg | grep ttyS
 tori@serverMaster:~$ sudo dmesg | grep ttyS
 [    2.307869] 00:02: ttyS0 at I/O 0x3f8 (irq = 4, base_baud = 115200) is a 16550A
 ```
-Wir haben erfolgreich die serielle Schnittstelle `ttyS1` auf beiden VM´s erzeugt.
+Wir haben erfolgreich die serielle Schnittstelle `ttyS1` auf beiden VM´s erzeugt. 
+## Schnittstelle konfigurieren
+bestehende Konfiguration ermitteln:
+```
+sudo stty -F /dev/ttyS0
+```
+Um die Einstellungen für die serielle Schnittstelle `/dev/ttyS0` auf **19200 bps, no parity, 8 Datenbits und 1 Stoppbit** zu setzen, kannst du das Befehlsprogramm stty verwenden. Hier ist ein Beispiel:
+```
+sudo stty -F /dev/ttyS0 19200 -parodd cs8 -cstopb
+```
+Wichtig! Das muss auf beiden Seiten der Verbindung gemacht werden!  
+Diese Einstellung ist nicht persistent und muss nach jedem Neustart der Computer wieder angepasst werden.
+
 ## Daten übertragen
 Auf der VM `serverSlave`starte ich ein extra Terminal mit:  
 `sudo screen /dev/ttyS0`  
