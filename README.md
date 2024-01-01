@@ -90,3 +90,42 @@ Mit diesem Einzeiler kannst du die Daten zeilenweise auslesen und über die seri
 ```
 while IFS= read -r line; do echo -e "$line\r" > /dev/ttyS0; sleep 1; done < serialData.csv
 ``` 
+## Bash-Skripte
+Mit dem Skript `send_serial_data.sh` kannst du vom `serverMaster` Daten aus der Datei `serialData.csv` senden und mit dem Skript `serial_listener.sh` die Daten auf dem `serverSlave` empfangen.  
+```
+#!/bin/bash
+
+# send_serial_data.sh
+
+# Serial interface
+SERIAL_PORT="/dev/ttyS0"
+
+# Set up serial port
+stty -F "$SERIAL_PORT" 19200 -parodd cs8 -cstopb
+
+# Send data to serial port
+while IFS= read -r line; do
+  echo -e "$line\r" > "$SERIAL_PORT"
+  sleep 1
+done < serialData.csv
+```
+```
+#!/bin/bash
+
+# serial_listener.sh
+
+# Serial interface
+SERIAL_PORT="/dev/ttyS0"
+
+# Set up serial port
+stty -F "$SERIAL_PORT" 19200 -parodd cs8 -cstopb
+
+# Infinite loop to listen for serial data
+while true; do
+    # Read one line from the serial port
+    read -r SERIAL_DATA < "$SERIAL_PORT"
+
+    # Display received data in the terminal
+    echo "Received data: $SERIAL_DATA"
+done
+```
