@@ -41,3 +41,33 @@ allen anderen Benutzern das Schreiben in die serielle Schnittstelle auf dem mast
 root@serverMaster:~# chmod 666 /dev/ttyS0
 ```
 ![Screenshot Terminal](https://github.com/richtertoralf/serielleSimulation/blob/b8e84affc56795c1d477f543f048b255f092b553/Screenshot%202024-01-01%20150633.png)
+
+## Musterdaten
+In einer serialData.csv auf dem `serverMaster` kannst du dir jetzt Beipieldaten speichern. Zum Beispiel so etwas:
+```
+8
+102000000
+8
+8
+202003
+8
+8
+8
+302000000
+40200000000001
+8
+8
+302000000
+40200000000011
+8
+302000000
+40200000000111
+8
+302000000
+40200000001111
+8
+```
+Mit diesem Einzeiler kannst du die Daten zeilenweise auslesen und über die serielle Schnittstelle zum `serverSlave` senden:
+```
+while IFS= read -r line; do echo -e "$line\r" > /dev/ttyS0; sleep 1; done < serialData.csv
+``` 
