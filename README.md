@@ -36,6 +36,12 @@ sudo stty -F /dev/ttyS0 19200 -parodd cs8 -cstopb
 Wichtig! Das muss auf beiden Seiten der Verbindung gemacht werden!  
 Diese Einstellung ist nicht persistent und muss nach jedem Neustart der Computer wieder angepasst werden.
 
+## Berechtigungen setzen
+Üblicherweise, jedenfalls bei meinem Test mit einem Linux Ubuntu 22.04 Server, hat nur der User `root` die Rechte um auf der seriellen Schnittstelle zu lesen und zu schreiben. Deswegen:
+```
+sudo chmod 666 /dev/ttyS0
+```
+
 ## Daten übertragen
 ### serverSlave
 Auf der VM `serverSlave`starte ich ein extra Terminal mit:  
